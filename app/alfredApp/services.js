@@ -299,8 +299,7 @@ app.service('chatService', function(){
                     control = control + '<div class="card">'+
                                             '<img class="card-image"  src="' + card.image +'">'+
                                             '<div class="card-header">'+ card.title + '</div>' +
-                                            '<div class="card-text">' + 'Hi there,,,, how are you' +'</div>' +
-                                           
+                                            '<div class="card-text">' + card.description1 + '<br>'+ card.description2 +'</div>' +   
                                             '<div class="card-text card-text-bottom" ng-click="vm.callIntent(\'' + card.callBackFn +'\')">' + card.postText +'</div>'+
                                         '</div>';
                 }
@@ -389,7 +388,7 @@ app.service('chatService', function(){
               control = control + '<div>';
               control = control + '<div class="direct-chat-text-no-arrow">';
 
-              control = control + '<label for="from">From : </label><input type="text" id="from" from="From : " placeholder="Enter the start date." /><br /><label for="To">To : </label><input type="text" id="to" name="to" placeholder="Enter the end date" /><br /><label for="Approver">Approver : </label> Neha Malhotra <br /><label for="Leave Category">Leave Category : </label><select name="Category"><option value="sick">Sick Leave</option><option value="casual">Vacation</option><option value="paterinity">Paternity</option><option value="Other">Other</option></select><br><label for="Comments">Comments : </label><input type="text" id="comments" from="Comments"/><br><button ng-click="vm.sendForm()">Applying for leaves</button>';
+              control = control + '<label for="from">From : </label><input type="text" id="from" from="From : " placeholder="Enter the start date." /><br /><label for="To">To : </label><input type="text" id="to" name="to" placeholder="Enter the end date" /><br /><label for="Approver">Approver : </label> Neha Malhotra <br /><label for="Leave Category">Leave Category : </label><select name="Category"><option value="sick">Sick Leave</option><option value="casual">Vacation</option><option value="paterinity">Paternity</option><option value="Other">Other</option></select><br><label for="Comments">Comments : </label><input type="text" id="comments" from="Comments"/><br><button ng-click="vm.sendForm()">Apply for leaves</button>';
                         control=control;
                         control=control+'</div>'+'</div>'+'</div>';
 
