@@ -1,4 +1,4 @@
-app.controller('insuranceCtrl', ['$scope', '$compile','chatService','$sce','$http','$timeout','$rootScope','Pubnub', function($scope,$compile,chatService,$sce,http,$timeout,$rootScope,Pubnub) {
+app.controller('insuranceCtrl', ['$scope', '$compile','chatService','$sce','$http','$timeout','$rootScope','Pubnub', function($scope,$compile,chatService,$sce,$http,$timeout,$rootScope,Pubnub) {
         var vm = this;
         vm.conversationHistory = [];
 
@@ -54,6 +54,27 @@ app.controller('insuranceCtrl', ['$scope', '$compile','chatService','$sce','$htt
             vm.askApi(text);
             vm.insertChat("me", text);
             vm.userText = "";
+        }
+        
+        vm.sendForm = function(){
+            var dataObj = {
+                "name" : "abc",
+                "employees" : "abc",
+                "headoffice" : "abc"
+            };	
+            var config = {
+                headers : {
+                    'Content-Type': 'application/json'
+                }
+            };
+            var res = $http.post('http://ec2-13-126-130-219.ap-south-1.compute.amazonaws.com:3000/form', dataObj, config);
+            res.success(function() {
+                console.log("Hi there");
+            });
+        res.error(function() {
+            console.log("Hi thedsfkbsdre");
+        });
+
         }
 
         
@@ -223,7 +244,10 @@ app.controller('insuranceCtrl', ['$scope', '$compile','chatService','$sce','$htt
                         for(var i=0;i<text.msgBdy.attachments.length;i++){
                             attachment=text.msgBdy.attachments[i];
                             if(text.msgBdy.attachments[i].type=='cards'){
-                                history.addnData=chatService.getHtmlForScrollCards(text.msgBdy.attachments[i]);
+                                history.addnData=chatService.getHtmlForScrollCards1(text.msgBdy.attachments[i]);
+                            }
+                            else if(attachment.type=='profile'){
+                                history.addnData=history.addnData+chatService.getHtmlForProfileCards(text.msgBdy.attachments[i]);
                             }
                             else if(attachment.type=='doubleColumnText'){
                                 history.addnData=history.addnData+chatService.getHtmlForDblColCard(attachment);

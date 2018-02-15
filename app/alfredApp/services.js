@@ -290,7 +290,7 @@ app.service('chatService', function(){
 
                return control;
             },
-            getHtmlForScrollCards:function(attachment){
+            getHtmlForProfileCards:function(attachment){
                 var card;
 
                 control = '<div class="scrolling-wrapper">';
@@ -299,7 +299,25 @@ app.service('chatService', function(){
                     control = control + '<div class="card">'+
                                             '<img class="card-image"  src="' + card.image +'">'+
                                             '<div class="card-header">'+ card.title + '</div>' +
-                                            '<div class="card-text">' + card.description +'</div>' +
+                                            '<div class="card-text">' + 'Hi there,,,, how are you' +'</div>' +
+                                           
+                                            '<div class="card-text card-text-bottom" ng-click="vm.callIntent(\'' + card.callBackFn +'\')">' + card.postText +'</div>'+
+                                        '</div>';
+                }
+                control = control + '</div>';
+                return control;
+            },
+            getHtmlForScrollCards1:function(attachment){
+                var card;
+
+                control = '<div class="scrolling-wrapper">';
+                for(var i=0;i<attachment.data.length;i++){
+                    card=attachment.data[i];
+                    control = control + '<div class="card">'+
+                                            '<img class="card-image"  src="' + card.image +'">'+
+                                            '<div class="card-header">'+ card.title + '</div>' +
+                                            '<div class="card-text">' + 'Hi there,,,, how are you' +'</div>' +
+                                           
                                             '<div class="card-text card-text-bottom" ng-click="vm.callIntent(\'' + card.callBackFn +'\')">' + card.postText +'</div>'+
                                         '</div>';
                 }
@@ -371,13 +389,12 @@ app.service('chatService', function(){
               control = control + '<div>';
               control = control + '<div class="direct-chat-text-no-arrow">';
 
-              control = control + '<form action="" method="post" enctype="multipart/form-data"><fieldset><label for="from">From : </label><input type="text" id="from" from="From : " placeholder="Enter the start date." /><br /><label for="To">To : </label><input type="text" id="to" name="to" placeholder="Enter the end date" /><br /><label for="Approver">Approver : </label> Neha Malhotra <br /><label for="Leave Category">Leave Category : </label><select name="Category"><option value="sick">Sick Leave</option><option value="casual">Vacation</option><option value="paterinity">Paternity</option><option value="Other">Other</option></select><br><label for="Comments">Comments : </label><input type="text" id="comments" from="Comments"/><br><input type="submit" value="Apply" /></fieldset></form>';
+              control = control + '<label for="from">From : </label><input type="text" id="from" from="From : " placeholder="Enter the start date." /><br /><label for="To">To : </label><input type="text" id="to" name="to" placeholder="Enter the end date" /><br /><label for="Approver">Approver : </label> Neha Malhotra <br /><label for="Leave Category">Leave Category : </label><select name="Category"><option value="sick">Sick Leave</option><option value="casual">Vacation</option><option value="paterinity">Paternity</option><option value="Other">Other</option></select><br><label for="Comments">Comments : </label><input type="text" id="comments" from="Comments"/><br><button ng-click="vm.sendForm()">Applying for leaves</button>';
                         control=control;
                         control=control+'</div>'+'</div>'+'</div>';
 
                 return control;
             },
-
             /** NEhA**/
             /** Please do not overwritw during merge **/
             /** Neha **/
