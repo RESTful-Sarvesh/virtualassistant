@@ -109,7 +109,7 @@ app.controller('insuranceCtrl', ['$scope', '$compile','chatService','$sce','$htt
             if(vm.botType=='insurance_customer'){
                 history.user = 'Rosey@Insurance';
                // history.text =  'Hi! I am Mike. I can help you with anything related to Insurance ';
-                history.text = 'Good Afternoon! Am I speaking with Mr Sachin Goel?';
+                history.text = 'Good Afternoon! Am I speaking with Mr Sachin?';
                 //vm.sayIt(history.text);
                 //vm.sayIt('Build natural and rich conversational experiences.Give users new ways to interact with your product by building engaging voice and text-based conversational interfaces powered by AI. Connect with users on the Google Assistant, Amazon Alexa, Facebook Messenger, and other popular platforms and devices.Provide us with examples of what a user might say when interacting with your product. Using years of domain knowledge and natural language understanding, we analyze and understand the users intent to help you respond in the most useful way.');
             }else if(vm.botType=='fintech'){
@@ -188,7 +188,7 @@ app.controller('insuranceCtrl', ['$scope', '$compile','chatService','$sce','$htt
                 history.image = vm.me.avatar;
                 control =  text;
                 history.userType = "me";
-                vm.stopSaying();
+              //  vm.stopSaying();
             }
             else{
 
@@ -217,7 +217,7 @@ app.controller('insuranceCtrl', ['$scope', '$compile','chatService','$sce','$htt
                         history.marker="";
 
                         control=chatService.getHtmlForDesc(text.msgBdy.text);
-                        vm.sayIt(text.msgBdy.text);
+                        //vm.sayIt(text.msgBdy.text);
 
                         /**kriti-if bot asks for location, dont show msg bubble and pass current location*/
                         if(text.msgBdy.text=='Send me your location'){
@@ -561,9 +561,6 @@ app.controller('insuranceCtrl', ['$scope', '$compile','chatService','$sce','$htt
               alert(' Sorry, your browser does not support getUserMedia');
             }
             /*code for checking iOS mic permission*/
-
-
-
 
 
 
